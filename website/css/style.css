@@ -14,7 +14,15 @@ p {
 }
 /*Classes*/
 .canvasDisplay {
+    margin-top: 5%;
+
+    width: 256px;
+    height: 192px;
+
+    border: 2px solid dimgrey;
+    background-color: white;
 }
+
 .flexBar {
     height: 90vh;
 }
@@ -62,7 +70,11 @@ p {
 #drawArea {
     width: 60%;
     height: 100%;
+    min-width: 260px;
+    min-height: 196px;
     background-color: darkgrey;
+    display: flex;
+    justify-content: center;
 }
 
 #tools {
