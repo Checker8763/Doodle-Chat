@@ -31,16 +31,19 @@ p {
    padding: 5px 5px 5px 20px;
 }
 
-.toolsButton {
-    background-color: lightgray;
-    width: 50px;
-    height: 50px;
+.toolButton {
+    background-color: dimgrey;
     border: none;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 10px;
+}
+
+.toolIcon {
+    width: 50px;
+    height: 50px;
 }
 
 /*IDs*/
