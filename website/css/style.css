@@ -26,6 +26,21 @@ p {
 .flexBar {
     height: 90vh;
 }
+
+.formTools {
+   padding: 5px 5px 5px 20px;
+}
+
+.toolsButton {
+    background-color: transparent;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
 /*IDs*/
 #header {
     width: 100vw;
