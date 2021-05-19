@@ -1,7 +1,11 @@
-// GLOBAL VARIABLES
-canvaseId = "inputCanvas"
+/* ---- GLOBAL VARIABLES ---- */
+const canvaseId = "inputCanvas"
 
-let drawCanvas = document.getElementById(canvaseId);
+const inputCanvas = document.getElementById(canvaseId);
+
+const sendButton = document.getElementById("send")
+const getButton = document.getElementById("get")
+const resetButton = document.getElementById("reset")
 
 let Options = {
   drawWidth: 1,
@@ -10,8 +14,7 @@ let Options = {
   blurWidth: 1,
 };
 
-
-// FUNCTIONS
+/* ---- FUNCTIONS ---- */
 function getDrawCanvas() {
   return document.getElementById(canvaseId);
 }
@@ -29,8 +32,8 @@ function setContextOptions(context, options) {
 
 function generateBackground() {
   let distance = 10,
-    lineCount = Math.floor(drawCanvas.height / distance),
-    ctx = drawCanvas.getContext("2d");
+    lineCount = Math.floor(inputCanvas.height / distance),
+    ctx = inputCanvas.getContext("2d");
 
   setContextOptions(context)
 
@@ -38,7 +41,7 @@ function generateBackground() {
     let offsetY = distance * index;
     ctx.beginPath();
     ctx.moveTo(0, offsetY);
-    ctx.lineTo(drawCanvas.width, offsetY));
+    ctx.lineTo(inputCanvas.width, offsetY);
     ctx.stroke();
   }
 }
@@ -47,7 +50,7 @@ function generateBackground() {
 function drawLineOnCanvas(event) {
   let x = event.offsetX,
     y = event.offsetY,
-    ctx = drawCanvas.getContext("2d");
+    ctx = inputCanvas.getContext("2d");
 
   setContextOptions(ctx, Options);
 
@@ -60,7 +63,7 @@ function drawLineOnCanvas(event) {
   ctx.stroke();
 }
 
-
+/* ----- EVENT HANDLER ----- */
 function mouseMoveHandler(event) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
@@ -68,5 +71,17 @@ function mouseMoveHandler(event) {
   }
 }
 
+function resetCanvas(){
+  let ctx = inputCanvas.getContext("2d")
+  ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
+}
+
+/* ---- INIT ---- */
+// Assign height and width to cnavas
+inputCanvas.width = 256
+inputCanvas.height = 192
+
 // Register Listners
-drawCanvas.addEventListener("mousemove", mouseMoveHandler);
+inputCanvas.addEventListener("mousemove", mouseMoveHandler);
+
+resetButton.addEventListener("click", resetCanvas)
