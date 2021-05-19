@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
 /*Everything*/
 * {
     margin: 0;
     padding: 0;
 }
 /*HTML Elements*/
+p {
+    /*JUST FOR TESTING*/
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    padding: 5px;
+}
 /*Classes*/
 .canvasDisplay {
 }
@@ -33,21 +41,19 @@
 
 #chats {
     width: 25vw;
-    background-color: yellow;
+    background-color: lightgray;
 }
 
 #doodleScreen {
     width: 75vw;
-    background-color: lightcoral;
 }
 
 #chatHistory {
     height: 60%;
-    background-color: darkred;
+    background-color: dimgrey;
 }
 
 #toolBox {
-    background-color: beige;
     height: 40%;
     display: flex;
     flex-direction: row;
@@ -56,11 +62,11 @@
 #drawArea {
     width: 60%;
     height: 100%;
-    background-color: chartreuse;
+    background-color: darkgrey;
 }
 
 #tools {
     width: 40%;
     height: 100%;
-    background-color: aqua;
+    background-color: white;
 }
