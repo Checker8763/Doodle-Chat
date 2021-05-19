@@ -33,8 +33,8 @@ p {
 
 .toolButton {
     background-color: dimgrey;
-    border: none;
-    padding: 5px 5px;
+    border: 2px solid white;
+    border-radius: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RaffaelSchaefer/Doodle-Chat.git"
+    "url": "git+https://github.com/Checker8763/Doodle-Chat"
   },
   "author": "Raffael E. Schaefer, Tomek Kochanowsky",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RaffaelSchaefer/Doodle-Chat/issues"
+    "url": "https://github.com/Checker8763/Doodle-Chat/issues"
   },
-  "homepage": "https://github.com/RaffaelSchaefer/Doodle-Chat#readme"
+  "homepage": "https://github.com/Checker8763/Doodle-Chat#readme"
 }
