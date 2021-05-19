@@ -1,0 +1,19 @@
+{
+  "name": "doodle-chat",
+  "version": "1.0.0",
+  "description": "A web recreation of Pictochat",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaffaelSchaefer/Doodle-Chat.git"
+  },
+  "author": "Raffael E. Schaefer, Tomek Kochanowsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RaffaelSchaefer/Doodle-Chat/issues"
+  },
+  "homepage": "https://github.com/RaffaelSchaefer/Doodle-Chat#readme"
+}
