@@ -1,7 +1,7 @@
 /* ---- GLOBAL VARIABLES ---- */
-const canvaseId = "inputCanvas"
+const canvasId = "inputCanvas"
 
-const inputCanvas = document.getElementById(canvaseId);
+const inputCanvas = document.getElementById(canvasId);
 
 const sendButton = document.getElementById("send")
 const getButton = document.getElementById("get")
@@ -16,7 +16,7 @@ let Options = {
 
 /* ---- FUNCTIONS ---- */
 function getDrawCanvas() {
-  return document.getElementById(canvaseId);
+  return document.getElementById(canvasId);
 }
 
 
@@ -55,9 +55,9 @@ function drawLineOnCanvas(event) {
   setContextOptions(ctx, Options);
 
   ctx.beginPath()
-  // Draw line from last coord...
+  // Draw line from last cord...
   ctx.moveTo(x - event.movementX, y - event.movementY);
-  // ... to new coord
+  // ... to new cord
   ctx.lineTo(x, y);
 
   ctx.stroke();
@@ -77,11 +77,11 @@ function resetCanvas(){
 }
 
 /* ---- INIT ---- */
-// Assign height and width to cnavas
-inputCanvas.width = 256
-inputCanvas.height = 192
+// Assign height and width to canvas
+inputCanvas.width = 384
+inputCanvas.height = 288
 
-// Register Listners
+// Register Listeners
 inputCanvas.addEventListener("mousemove", mouseMoveHandler);
 
 resetButton.addEventListener("click", resetCanvas)

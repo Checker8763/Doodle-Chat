@@ -14,13 +14,14 @@ p {
 }
 /*Classes*/
 .canvasDisplay {
-    margin-top: 5%;
+    margin-top: 1%;
 
-    width: 256px;
-    height: 192px;
+    width: 384px;
+    height: 288px;
 
     border: 2px solid dimgrey;
     background-color: white;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .flexBar {
@@ -90,8 +91,7 @@ p {
 #drawArea {
     width: 60%;
     height: 100%;
-    min-width: 260px;
-    min-height: 196px;
+    min-width: 388px;
     background-color: darkgrey;
     display: flex;
     justify-content: center;
