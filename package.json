@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RaffaelSchaefer/Doodle-Chat/issues"
   },
-  "homepage": "https://github.com/RaffaelSchaefer/Doodle-Chat#readme"
+  "homepage": "https://github.com/RaffaelSchaefer/Doodle-Chat#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
 }
