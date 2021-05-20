@@ -4,7 +4,8 @@
   "description": "A web recreation of Pictochat",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx http-server website 8080 -o"
   },
   "repository": {
     "type": "git",
