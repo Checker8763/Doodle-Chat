@@ -8,7 +8,7 @@ const getButton = document.getElementById("get")
 const resetButton = document.getElementById("reset")
 
 let Options = {
-  drawWidth: 1,
+  drawWidth: 2,
   color: "black",
   blur: false,
   blurWidth: 1,
@@ -29,14 +29,31 @@ function setContextOptions(context, options) {
   }
 }
 
+function drawLine(fromX, fromY, toX, toY) {
+  ctx = inputCanvas.getContext("2d");
+
+  setContextOptions(ctx, Options);
+
+  ctx.beginPath()
+  ctx.moveTo(fromX, fromY);
+  ctx.lineTo(toX, toY);
+  ctx.stroke();
+}
 
 function generateBackground() {
   let distance = 10,
-    lineCount = Math.floor(inputCanvas.height / distance),
+    lineCount = Math.ceil(inputCanvas.height / distance),
     ctx = inputCanvas.getContext("2d");
 
-  setContextOptions(context)
+  setContextOptions(
+    ctx,
+    {
+      "color": "black",
+      "drawWidth": 0.25
+    }
+  )
 
+  // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index;
     ctx.beginPath();
@@ -44,42 +61,43 @@ function generateBackground() {
     ctx.lineTo(inputCanvas.width, offsetY);
     ctx.stroke();
   }
-}
 
+  // Frame Border
+  let maxY = inputCanvas.height,
+    maxX = inputCanvas.width;
 
-function drawLineOnCanvas(event) {
-  let x = event.offsetX,
-    y = event.offsetY,
-    ctx = inputCanvas.getContext("2d");
-
-  setContextOptions(ctx, Options);
-
-  ctx.beginPath()
-  // Draw line from last cord...
-  ctx.moveTo(x - event.movementX, y - event.movementY);
-  // ... to new cord
-  ctx.lineTo(x, y);
-
-  ctx.stroke();
+  drawLine(1, 0, 1, maxY)
+  drawLine(1, 1, maxX, 1)
+  drawLine(maxX - 1, maxY - 1, maxX - 1, 1)
+  drawLine(maxX, maxY - 1, 1, maxY - 1)
+  // Frame Border Roundings
 }
 
 /* ----- EVENT HANDLER ----- */
 function mouseMoveHandler(event) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
-    drawLineOnCanvas(event);
+    let toX = event.offsetX,
+      toY = event.offsetY,
+      fromX = toX - event.movementX,
+      fromY = toY - event.movementY;
+
+    drawLine(fromX, fromY, toX, toY);
   }
 }
 
-function resetCanvas(){
+function resetCanvas() {
   let ctx = inputCanvas.getContext("2d")
   ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
+  generateBackground()
 }
 
 /* ---- INIT ---- */
 // Assign height and width to canvas
 inputCanvas.width = 384
 inputCanvas.height = 288
+
+generateBackground()
 
 // Register Listeners
 inputCanvas.addEventListener("mousemove", mouseMoveHandler);
