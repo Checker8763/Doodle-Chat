@@ -4,8 +4,8 @@
   "description": "A web recreation of Pictochat",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx http-server website 8080 -o"
+    "dev": "npx http-server website 8080 -o",
+    "sass": "node-sass -w scss/ -o css/ --recursive"
   },
   "repository": {
     "type": "git",
