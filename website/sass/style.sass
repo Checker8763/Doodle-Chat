@@ -1,11 +1,17 @@
+/*Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap')
 
-@mixin footerHeaderMixIn()
+$canvasWidth: 256px
+$canvasHeight: 192px
+
+@mixin footerHeaderMixIn($index)
+    z-index: $index
+
     width: 100vw
     height: 5vh
+    min-height: 15px
 
     background-color: gray
-    
 
 /*Everything*/
 *
@@ -22,8 +28,8 @@ p
 .canvasDisplay
     margin-top: 1%
 
-    width: 384px
-    height: 288px
+    width: $canvasWidth
+    height: $canvasHeight
 
     border: 2px solid dimgrey
     background-color: white
@@ -51,10 +57,10 @@ p
 
 /*IDs*/
 #header
-    @include footerHeaderMixIn()
+    @include footerHeaderMixIn(1)
 
 #footer
-    @include footerHeaderMixIn()
+    @include footerHeaderMixIn(1)
 
 #mainScreen
     display: flex
@@ -80,10 +86,12 @@ p
 #drawArea
     width: 60%
     height: 100%
-    min-width: 388px
+    min-width: $canvasWidth+4px
+    min-height: $canvasHeight+4px
     background-color: darkgrey
     display: flex
     justify-content: center
+    align-content: center
 
 #tools
     width: 40%

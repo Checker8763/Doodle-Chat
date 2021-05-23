@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "npx http-server website 8080 -o",
-    "bulid-css": "node-sass --include-path sass website/sass/style.sass website/css/style.css"
+    "sass": "node-sass --include-path sass website/sass/style.sass website/css/style.css"
   },
   "repository": {
     "type": "git",

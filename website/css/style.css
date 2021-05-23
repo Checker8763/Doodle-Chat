@@ -1,3 +1,4 @@
+/*Google Fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
 /*Everything*/
 * {
@@ -13,8 +14,8 @@ p {
 /*Classes*/
 .canvasDisplay {
   margin-top: 1%;
-  width: 384px;
-  height: 288px;
+  width: 256px;
+  height: 192px;
   border: 2px solid dimgrey;
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); }
@@ -40,13 +41,17 @@ p {
 
 /*IDs*/
 #header {
+  z-index: 1;
   width: 100vw;
   height: 5vh;
+  min-height: 15px;
   background-color: gray; }
 
 #footer {
+  z-index: 2;
   width: 100vw;
   height: 5vh;
+  min-height: 15px;
   background-color: gray; }
 
 #mainScreen {
@@ -73,10 +78,12 @@ p {
 #drawArea {
   width: 60%;
   height: 100%;
-  min-width: 388px;
+  min-width: 260px;
+  min-height: 196px;
   background-color: darkgrey;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-content: center; }
 
 #tools {
   width: 40%;
