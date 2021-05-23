@@ -1,104 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
 /*Everything*/
 * {
-    margin: 0;
-    padding: 0;
-}
+  margin: 0;
+  padding: 0; }
+
 /*HTML Elements*/
 p {
-    /*JUST FOR TESTING*/
-    font-family: 'Roboto Mono', monospace;
-    text-align: center;
-    padding: 5px;
-}
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  padding: 5px; }
+
 /*Classes*/
 .canvasDisplay {
-    margin-top: 1%;
-
-    width: 384px;
-    height: 288px;
-
-    border: 2px solid dimgrey;
-    background-color: white;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-}
+  margin-top: 1%;
+  width: 384px;
+  height: 288px;
+  border: 2px solid dimgrey;
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); }
 
 .flexBar {
-    height: 90vh;
-}
+  height: 90vh; }
 
-.formTools {
-   padding: 5px 5px 5px 20px;
-}
+.tool button {
+  background-color: dimgrey;
+  border: 2px solid white;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px; }
 
-.toolButton {
-    background-color: dimgrey;
-    border: 2px solid white;
-    border-radius: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-}
+.tool img {
+  width: 55px;
+  height: 55px; }
 
-.toolIcon {
-    width: 55px;
-    height: 55px;
-}
+.tool div {
+  padding: 5px 5px 5px 20px; }
 
 /*IDs*/
 #header {
-    width: 100vw;
-    height: 5vh;
-
-    background-color: gray;
-}
+  width: 100vw;
+  height: 5vh;
+  background-color: gray; }
 
 #footer {
-    width: 100vw;
-    height: 5vh;
-
-    background-color: gray;
-}
+  width: 100vw;
+  height: 5vh;
+  background-color: gray; }
 
 #mainScreen {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-}
+  display: flex;
+  flex-direction: row;
+  align-content: center; }
 
 #chats {
-    width: 25vw;
-    background-color: lightgray;
-}
+  width: 25vw;
+  background-color: lightgray; }
 
 #doodleScreen {
-    width: 75vw;
-}
+  width: 75vw; }
 
 #chatHistory {
-    height: 60%;
-    background-color: dimgrey;
-}
+  height: 60%;
+  background-color: dimgrey; }
 
 #toolBox {
-    height: 40%;
-    display: flex;
-    flex-direction: row;
-}
+  height: 40%;
+  display: flex;
+  flex-direction: row; }
 
 #drawArea {
-    width: 60%;
-    height: 100%;
-    min-width: 388px;
-    background-color: darkgrey;
-    display: flex;
-    justify-content: center;
-}
+  width: 60%;
+  height: 100%;
+  min-width: 388px;
+  background-color: darkgrey;
+  display: flex;
+  justify-content: center; }
 
 #tools {
-    width: 40%;
-    height: 100%;
-    background-color: white;
-}
+  width: 40%;
+  height: 100%;
+  background-color: white; }
