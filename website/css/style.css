@@ -12,27 +12,36 @@
   width: 244px;
   margin: 4px;
   background-color: white; }
-  .panel canvas {
-    border: 2px solid black;
-    border-radius: 5px; }
 
 /*IDs*/
 #wrapper {
   height: 100%;
   width: 100%;
-  min-height: 380px;
-  min-width: 252px;
+  min-height: 386px;
+  min-width: 254px;
   position: absolute;
   display: grid;
   place-items: center;
   background-color: black; }
 
 #mainUI {
-  height: 380px;
-  width: 252px;
+  height: 386px;
+  width: 254px;
   background-color: dimgray;
   border: 5px solid dimgray;
   border-radius: 15px; }
+
+#picture2 {
+  border: 1px solid black;
+  border-radius: 5px; }
+
+#picture1 {
+  border: 1px solid black;
+  border-radius: 5px; }
+
+#inputCanvas {
+  border: 1px solid black;
+  border-radius: 5px; }
 
 #tools {
   display: flex;

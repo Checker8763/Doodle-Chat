@@ -7,12 +7,13 @@ $userUISizeScale: 1
 $canvasWidth: $userUISizeScale*244px
 $canvasHeight: $userUISizeScale*84px
 $userUIMargins: $userUISizeScale*4px
+$userUICanvasBorder: $userUISizeScale*1px
 $userUIBackgroundColor: dimgray
 
 $iconSize: 20px
 
-$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount*2)+$userUIMargins*3)
-$userUIWidth: $canvasWidth+($userUIMargins*2)
+$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount*2)+$userUIMargins*3)+($userUICanvasBorder*($userUIPanelAmount - 1)*2)
+$userUIWidth: $canvasWidth+($userUIMargins*2)+($userUICanvasBorder*2)
 
 @mixin toolElement($color, $width)
     background-color: $color
@@ -27,6 +28,10 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
         height: $iconSize
         padding: 2px
 
+@mixin canvasBorder()
+    border: $userUICanvasBorder solid black
+    border-radius: 5px
+
 /*Everything*/
 *
     margin: 0
@@ -39,10 +44,6 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
     width: $canvasWidth
     margin: $userUIMargins
     background-color: white
-
-    canvas
-        border: 2px solid black
-        border-radius: 5px
 
 /*IDs*/
 #wrapper
@@ -65,6 +66,15 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
 
     border: 5px solid $userUIBackgroundColor
     border-radius: 15px
+
+#picture2
+    @include canvasBorder()
+
+#picture1
+    @include canvasBorder()
+
+#inputCanvas
+    @include canvasBorder()
 
 #tools
     display: flex
