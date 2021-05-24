@@ -118,8 +118,8 @@ function resetCanvas() {
 
 function initCanvas() {
   console.log("Canvas Init")
-  inputCanvas.width = 256
-  inputCanvas.height = 96
+  inputCanvas.width = 244
+  inputCanvas.height = 84
   resetCanvas()
 }
 
