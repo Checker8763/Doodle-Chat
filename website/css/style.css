@@ -8,8 +8,8 @@
 
 /*Classes*/
 .panel {
-  height: 96px;
-  width: 256px;
+  height: 84px;
+  width: 244px;
   margin: 4px;
   background-color: white; }
 
@@ -17,15 +17,15 @@
 #wrapper {
   height: 100%;
   width: 100%;
-  min-height: 428px;
-  min-width: 264px;
+  min-height: 380px;
+  min-width: 252px;
   position: absolute;
   display: grid;
   place-items: center; }
 
 #mainUI {
-  height: 428px;
-  width: 264px;
+  height: 380px;
+  width: 252px;
   background-color: dimgray; }
 
 #tools {
