@@ -1,11 +1,12 @@
 /*Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap')
 
-$canvasWidth: 256px
-$canvasHeight: 69px
-$userUIMargins: 4px
-
 $userUIPanelAmount: 4
+$userUISizeScale: 1
+
+$canvasWidth: $userUISizeScale*256px
+$canvasHeight: $userUISizeScale*69px
+$userUIMargins: $userUISizeScale*4px
 
 $userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount)+$userUIMargins)
 $userUIWidth: $canvasWidth+($userUIMargins*2)
