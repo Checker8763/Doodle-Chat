@@ -95,7 +95,7 @@ function resetCanvas() {
 /* ---- INIT ---- */
 // Assign height and width to canvas
 inputCanvas.width = 256
-inputCanvas.height = 192
+inputCanvas.height = 96
 
 generateBackground()
 

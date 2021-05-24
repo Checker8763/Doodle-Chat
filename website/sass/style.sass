@@ -5,11 +5,16 @@ $userUIPanelAmount: 4
 $userUISizeScale: 1
 
 $canvasWidth: $userUISizeScale*256px
-$canvasHeight: $userUISizeScale*69px
+$canvasHeight: $userUISizeScale*96px
 $userUIMargins: $userUISizeScale*4px
 
-$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount)+$userUIMargins)
+$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount*2)+$userUIMargins*3)
 $userUIWidth: $canvasWidth+($userUIMargins*2)
+
+@mixin toolElement($color, $width)
+    background-color: $color
+    height: 100%
+    width: $width
 
 /*Everything*/
 *
@@ -24,7 +29,7 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
 
     margin: $userUIMargins
 
-    background-color: blueviolet
+    background-color: white
 
 /*IDs*/
 #wrapper
@@ -41,4 +46,17 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
     height: $userUIHeight
     width: $userUIWidth
 
-    background-color: aqua
+    background-color: dimgray
+
+#tools
+    display: flex
+    flex-direction: row
+
+    #toolbarSmall
+        @include toolElement(gray, 5%)
+
+    #keyboard
+        @include toolElement(darkgray, 80%)
+
+    #toolbarBig
+        @include toolElement(lightgray, 15%)

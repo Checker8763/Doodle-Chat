@@ -8,22 +8,38 @@
 
 /*Classes*/
 .panel {
-  height: 69px;
+  height: 96px;
   width: 256px;
   margin: 4px;
-  background-color: blueviolet; }
+  background-color: white; }
 
 /*IDs*/
 #wrapper {
   height: 100%;
   width: 100%;
-  min-height: 296px;
+  min-height: 428px;
   min-width: 264px;
   position: absolute;
   display: grid;
   place-items: center; }
 
 #mainUI {
-  height: 296px;
+  height: 428px;
   width: 264px;
-  background-color: aqua; }
+  background-color: dimgray; }
+
+#tools {
+  display: flex;
+  flex-direction: row; }
+  #tools #toolbarSmall {
+    background-color: gray;
+    height: 100%;
+    width: 5%; }
+  #tools #keyboard {
+    background-color: darkgray;
+    height: 100%;
+    width: 80%; }
+  #tools #toolbarBig {
+    background-color: lightgray;
+    height: 100%;
+    width: 15%; }
