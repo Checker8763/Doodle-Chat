@@ -131,8 +131,8 @@ function mouseMoveHandler(event) {
       toY = event.offsetY,
       fromX = toX - event.movementX,
       fromY = toY - event.movementY;
-
-    drawLine(fromX, fromY, toX, toY, setContextOptions(ctx, Options));
+      setContextOptions(ctx, Options)
+    drawLine(fromX, fromY, toX, toY, ctx);
   }
 }
 
