@@ -8,40 +8,27 @@
     <script src="script/canvas/canvas.js" defer></script>
 </head>
 <body>
-    <div id="header">
-        <p>Header</p>
-    </div>
-    <div id="mainScreen">
-        <div id="chats" class="flexBar">
-            <p>Chats</p>
-        </div>
-        <div id="doodleScreen" class="flexBar">
-            <div id="chatHistory">
-                <p>Chat History</p>
-            </div>
-            <div id="toolBox">
-                <div id="drawArea">
-                    <canvas class="canvasDisplay" id="inputCanvas"></canvas>
-                </div>
-                <div id="tools">
-                    <p>Tools</p>
-                    <div class="tool">
-                        <button class="tool" id="get">
-                            <img class="tool" src="content/img/toolBox_icons/DoodleChat_get.png" alt="get">
-                        </button>
-                        <button class="tool" id="send">
-                            <img class="tool" src="content/img/toolBox_icons/DoodleChat_send.png" alt="send">
-                        </button>
-                        <button class="tool" id="reset">
-                            <img class="tool" src="content/img/toolBox_icons/DoodleChat_reset.png" alt="reset">
-                        </button>
+    <div id="wrapper">
+        <div id="mainUI">
+            <canvas class="panel" id="picture2"></canvas>
+            <canvas class="panel" id="picture1"></canvas>
+            <canvas class="panel" id="inputCanvas"></canvas>
+            <div class="panel" id="tools">
+                <div id="toolbarSmall"></div>
+                <div id="keyboard"></div>
+                <div id="toolbarBig">
+                    <div id="get">
+                        <img src="content/img/toolBox_icons/DoodleChat_get.png" alt="get">
+                    </div>
+                    <div id="send">
+                        <img src="content/img/toolBox_icons/DoodleChat_send.png" alt="send">
+                    </div>
+                    <div id="reset">
+                        <img src="content/img/toolBox_icons/DoodleChat_reset.png" alt="reset">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="footer">
-        <p>Footer</p>
     </div>
 </body>
 </html>
