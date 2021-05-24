@@ -48,7 +48,7 @@ p {
   background-color: gray; }
 
 #footer {
-  z-index: 2;
+  z-index: 1;
   width: 100vw;
   height: 5vh;
   min-height: 15px;
