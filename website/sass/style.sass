@@ -7,6 +7,9 @@ $userUISizeScale: 1
 $canvasWidth: $userUISizeScale*244px
 $canvasHeight: $userUISizeScale*84px
 $userUIMargins: $userUISizeScale*4px
+$userUIBackgroundColor: dimgray
+
+$iconSize: 20px
 
 $userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount*2)+$userUIMargins*3)
 $userUIWidth: $canvasWidth+($userUIMargins*2)
@@ -20,8 +23,9 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
     width: 100%
     height: 33%
     img
-        width: 100%
-        height: 100%
+        width: $iconSize
+        height: $iconSize
+        padding: 2px
 
 /*Everything*/
 *
@@ -33,10 +37,12 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
 .panel
     height: $canvasHeight
     width: $canvasWidth
-
     margin: $userUIMargins
-
     background-color: white
+
+    canvas
+        border: 2px solid black
+        border-radius: 5px
 
 /*IDs*/
 #wrapper
@@ -49,18 +55,23 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)
     display: grid
     place-items: center
 
+    background-color: black
+
 #mainUI
     height: $userUIHeight
     width: $userUIWidth
 
-    background-color: dimgray
+    background-color: $userUIBackgroundColor
+
+    border: 5px solid $userUIBackgroundColor
+    border-radius: 15px
 
 #tools
     display: flex
     flex-direction: row
 
     #toolbarBig
-        @include toolElement(lightgray, 100%)
+        @include toolElement($userUIBackgroundColor, 100%)
 
         #get
             @include iconElement()
