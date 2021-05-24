@@ -2,97 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap')
 
 $canvasWidth: 256px
-$canvasHeight: 192px
+$canvasHeight: 69px
+$userUIMargins: 4px
 
-@mixin footerHeaderMixIn()
-    width: 100vw
-    height: 5vh
-    min-height: 15px
-    background-color: gray
-    p
-        font-size: 75%
+$userUIPanelAmount: 4
+
+$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount)+$userUIMargins)
+$userUIWidth: $canvasWidth+($userUIMargins*2)
 
 /*Everything*/
 *
     margin: 0
     padding: 0
-
-/*HTML Elements*/
-p
     font-family: 'Roboto Mono', monospace
-    text-align: center
-    padding: 5px
 
 /*Classes*/
-.canvasDisplay
-    margin-top: 1%
-
-    width: $canvasWidth
+.panel
     height: $canvasHeight
+    width: $canvasWidth
 
-    border: 2px solid dimgrey
-    background-color: white
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5)
+    margin: $userUIMargins
 
-.flexBar
-    height: 90vh
-
-.tool
-    button
-        background-color: dimgrey
-        border: 2px solid white
-        border-radius: 15px
-        text-align: center
-        text-decoration: none
-        display: inline-block
-        font-size: 10px
-
-    img
-        width: 55px
-        height: 55px
-    
-    div
-        padding: 5px 5px 5px 20px
+    background-color: blueviolet
 
 /*IDs*/
-#header
-    @include footerHeaderMixIn()
-
-#footer
-    @include footerHeaderMixIn()
-
-#mainScreen
-    display: flex
-    flex-direction: row
-    align-content: center
-
-#chats
-    width: 25vw
-    background-color: lightgray
-
-#doodleScreen
-    width: 75vw
-
-#chatHistory
-    height: 60%
-    background-color: dimgrey
-
-#toolBox
-    height: 40%
-    display: flex
-    flex-direction: row
-
-#drawArea
-    width: 60%
+#wrapper
     height: 100%
-    min-width: $canvasWidth+4px
-    min-height: $canvasHeight+4px
-    background-color: darkgrey
-    display: flex
-    justify-content: center
-    align-content: center
+    width: 100%
+    min-height: $userUIHeight
+    min-width: $userUIWidth
 
-#tools
-    width: 40%
-    height: 100%
-    background-color: white
+    position: absolute
+    display: grid
+    place-items: center
+
+#mainUI
+    height: $userUIHeight
+    width: $userUIWidth
+
+    background-color: aqua

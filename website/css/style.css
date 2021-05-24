@@ -3,91 +3,27 @@
 /*Everything*/
 * {
   margin: 0;
-  padding: 0; }
-
-/*HTML Elements*/
-p {
-  font-family: 'Roboto Mono', monospace;
-  text-align: center;
-  padding: 5px; }
+  padding: 0;
+  font-family: 'Roboto Mono', monospace; }
 
 /*Classes*/
-.canvasDisplay {
-  margin-top: 1%;
+.panel {
+  height: 69px;
   width: 256px;
-  height: 192px;
-  border: 2px solid dimgrey;
-  background-color: white;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); }
-
-.flexBar {
-  height: 90vh; }
-
-.tool button {
-  background-color: dimgrey;
-  border: 2px solid white;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px; }
-
-.tool img {
-  width: 55px;
-  height: 55px; }
-
-.tool div {
-  padding: 5px 5px 5px 20px; }
+  margin: 4px;
+  background-color: blueviolet; }
 
 /*IDs*/
-#header {
-  width: 100vw;
-  height: 5vh;
-  min-height: 15px;
-  background-color: gray; }
-  #header p {
-    font-size: 75%; }
-
-#footer {
-  width: 100vw;
-  height: 5vh;
-  min-height: 15px;
-  background-color: gray; }
-  #footer p {
-    font-size: 75%; }
-
-#mainScreen {
-  display: flex;
-  flex-direction: row;
-  align-content: center; }
-
-#chats {
-  width: 25vw;
-  background-color: lightgray; }
-
-#doodleScreen {
-  width: 75vw; }
-
-#chatHistory {
-  height: 60%;
-  background-color: dimgrey; }
-
-#toolBox {
-  height: 40%;
-  display: flex;
-  flex-direction: row; }
-
-#drawArea {
-  width: 60%;
+#wrapper {
   height: 100%;
-  min-width: 260px;
-  min-height: 196px;
-  background-color: darkgrey;
-  display: flex;
-  justify-content: center;
-  align-content: center; }
+  width: 100%;
+  min-height: 296px;
+  min-width: 264px;
+  position: absolute;
+  display: grid;
+  place-items: center; }
 
-#tools {
-  width: 40%;
-  height: 100%;
-  background-color: white; }
+#mainUI {
+  height: 296px;
+  width: 264px;
+  background-color: aqua; }
