@@ -41,18 +41,20 @@ p {
 
 /*IDs*/
 #header {
-  z-index: 1;
   width: 100vw;
   height: 5vh;
   min-height: 15px;
   background-color: gray; }
+  #header p {
+    font-size: 75%; }
 
 #footer {
-  z-index: 1;
   width: 100vw;
   height: 5vh;
   min-height: 15px;
   background-color: gray; }
+  #footer p {
+    font-size: 75%; }
 
 #mainScreen {
   display: flex;

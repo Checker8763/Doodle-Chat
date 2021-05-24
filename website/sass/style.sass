@@ -4,14 +4,13 @@
 $canvasWidth: 256px
 $canvasHeight: 192px
 
-@mixin footerHeaderMixIn($index)
-    z-index: $index
-
+@mixin footerHeaderMixIn()
     width: 100vw
     height: 5vh
     min-height: 15px
-
     background-color: gray
+    p
+        font-size: 75%
 
 /*Everything*/
 *
@@ -57,10 +56,10 @@ p
 
 /*IDs*/
 #header
-    @include footerHeaderMixIn(1)
+    @include footerHeaderMixIn()
 
 #footer
-    @include footerHeaderMixIn(1)
+    @include footerHeaderMixIn()
 
 #mainScreen
     display: flex
