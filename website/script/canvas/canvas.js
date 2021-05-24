@@ -7,8 +7,12 @@ const sendButton = document.getElementById("send")
 const getButton = document.getElementById("get")
 const resetButton = document.getElementById("reset")
 
+let Config = {
+  borderWidth: 2,
+}
+
 let Options = {
-  drawWidth: 2,
+  width: 2,
   color: "black",
   blur: false,
   blurWidth: 1,
@@ -21,22 +25,21 @@ function getDrawCanvas() {
 
 
 function setContextOptions(context, options) {
+  // basic options
   context.fillStyle = options.color;
-  context.lineWidth = options.drawWidth;
+  context.lineWidth = options.width;
+  // optional
   if (options.blur) {
     context.shadowColor = options.color;
     context.shadowBlur = options.blurWidth;
   }
 }
 
-function drawLine(fromX, fromY, toX, toY) {
-  ctx = inputCanvas.getContext("2d");
-
-  setContextOptions(ctx, Options);
-
+function drawLine(fromX, fromY, toX, toY, ctx) {
   ctx.beginPath()
   ctx.moveTo(fromX, fromY);
   ctx.lineTo(toX, toY);
+  ctx.closePath();
   ctx.stroke();
 }
 
@@ -74,32 +77,24 @@ function generateBackground() {
     lineCount = Math.ceil(inputCanvas.height / distance),
     ctx = inputCanvas.getContext("2d");
 
-  setContextOptions(
-    ctx,
-    {
-      "color": "black",
-      "drawWidth": 0.25
-    }
-  )
+  ctx.fillStyle = Options.color
+  ctx.lineWidth = 0.25
 
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index;
-    ctx.beginPath();
-    ctx.moveTo(0, offsetY);
-    ctx.lineTo(inputCanvas.width, offsetY);
-    ctx.stroke();
+    drawLine(0, offsetY, inputCanvas.width, offsetY, ctx)
   }
 
   // Frame Border
-  let maxY = inputCanvas.height,
-    maxX = inputCanvas.width;
+  // Set Style
+  ctx.fillStyle = Options.color
+  ctx.lineWidth = 2 * Config.borderWidth
 
-  drawLine(1, 0, 1, maxY)
-  drawLine(1, 1, maxX, 1)
-  drawLine(maxX - 1, maxY - 1, maxX - 1, 1)
-  drawLine(maxX, maxY - 1, 1, maxY - 1)
-  // Frame Border Roundings
+  strokeRoundedRect(ctx,
+    0, 0,
+    inputCanvas.width, inputCanvas.height,
+    5)
 }
 
 /* ----- EVENT HANDLER ----- */
@@ -121,12 +116,28 @@ function resetCanvas() {
   generateBackground()
 }
 
-/* ---- INIT ---- */
-// Assign height and width to canvas
-inputCanvas.width = 256
-inputCanvas.height = 192
+function initCanvas() {
+  console.log("Canvas Init")
+  inputCanvas.width = 256
+  inputCanvas.height = 192
+  resetCanvas()
+}
 
-generateBackground()
+function mouseMoveHandler(event) {
+  // Checks if left mouse button is pressed
+  if (event.buttons === 1) {
+    let ctx = inputCanvas.getContext('2d'),
+      toX = event.offsetX,
+      toY = event.offsetY,
+      fromX = toX - event.movementX,
+      fromY = toY - event.movementY;
+
+    drawLine(fromX, fromY, toX, toY, setContextOptions(ctx, Options));
+  }
+}
+
+// Init
+initCanvas()
 
 // Register Listeners
 inputCanvas.addEventListener("mousemove", mouseMoveHandler);
