@@ -30,7 +30,7 @@
   position: absolute;
   display: grid;
   place-items: center;
-  background: linear-gradient(45deg, #22c1c3 0%, #fdbb2d 25%, #fd872d 50%, #fd5a63 75%, #fd2df2 100%);
+  background: linear-gradient(45deg, #f13807 0%, #fd872d 25%, #fd872d 50%, #fdb45a 75%, #fd2df2 100%);
   background-size: 400%;
   animation: tide 25s ease-in-out infinite; }
 
