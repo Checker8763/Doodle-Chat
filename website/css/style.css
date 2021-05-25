@@ -27,8 +27,8 @@
 #mainUI {
   height: 386px;
   width: 254px;
-  background-color: dimgray;
-  border: 5px solid dimgray;
+  background-color: #525252;
+  border: 5px solid #525252;
   border-radius: 15px; }
 
 #picture2 {
@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: row; }
   #tools #toolbarBig {
-    background-color: dimgray;
+    background-color: #525252;
     height: 100%;
     width: 100%; }
     #tools #toolbarBig #get {
