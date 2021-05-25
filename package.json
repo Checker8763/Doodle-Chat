@@ -5,7 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "npx http-server website 8080 -o",
-    "sass": "node-sass --include-path sass website/sass/style.sass website/css/style.css"
+    "sass_compile": "node-sass --include-path sass sass/style.sass css/style.css",
+    "typescript_compile": "tsc --build tsconfig.json",
+    "complete_compile": "tsc --build tsconfig.json && node-sass --include-path sass sass/style.sass css/style.css"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "dependencies": {
     "node-sass": "^6.0.0",
-    "sass": "^1.34.0"
+    "sass": "^1.34.0",
+    "typescript": "^3.1.6"
   }
 }
