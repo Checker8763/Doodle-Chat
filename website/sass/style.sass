@@ -36,6 +36,16 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)+($userUICanvasBorder*2)
     border: $userUICanvasBorder solid black
     border-radius: 5px
 
+@keyframes tide
+    0%
+        background-position: 0 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0 50%
+
 /*Everything*/
 *
     margin: 0
@@ -60,7 +70,9 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)+($userUICanvasBorder*2)
     display: grid
     place-items: center
 
-    background-color: black
+    background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 25%, rgba(253,135,45,1) 50%, rgba(253,90,99,1) 75%, rgba(253,45,242,1) 100%)
+    background-size: 400%
+    animation: tide 25s ease-in-out infinite
 
 #mainUI
     height: $userUIHeight
@@ -70,6 +82,8 @@ $userUIWidth: $canvasWidth+($userUIMargins*2)+($userUICanvasBorder*2)
 
     border: 5px solid $userUIBackgroundColor
     border-radius: 15px
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
 
 #picture2
     @include canvasBorder()

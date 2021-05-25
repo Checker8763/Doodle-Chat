@@ -1,5 +1,13 @@
 /*Google Fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+@keyframes tide {
+  0% {
+    background-position: 0 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0 50%; } }
+
 /*Everything*/
 * {
   margin: 0;
@@ -22,14 +30,17 @@
   position: absolute;
   display: grid;
   place-items: center;
-  background-color: black; }
+  background: linear-gradient(45deg, #22c1c3 0%, #fdbb2d 25%, #fd872d 50%, #fd5a63 75%, #fd2df2 100%);
+  background-size: 400%;
+  animation: tide 25s ease-in-out infinite; }
 
 #mainUI {
   height: 386px;
   width: 254px;
   background-color: #525252;
   border: 5px solid #525252;
-  border-radius: 15px; }
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); }
 
 #picture2 {
   border: 1px solid black;
