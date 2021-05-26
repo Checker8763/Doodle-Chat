@@ -3,9 +3,9 @@ const canvasId = "inputCanvas"
 
 const inputCanvas: HTMLCanvasElement = document.getElementById(canvasId) as HTMLCanvasElement
 
-const sendButton = document.getElementById("send") !
-const getButton = document.getElementById("get") !
-const resetButton = document.getElementById("reset") !
+const sendButton = document.getElementById("send")!
+const getButton = document.getElementById("get")!
+const resetButton = document.getElementById("reset")!
 
 let Config = {
   borderWidth: 2,
@@ -35,7 +35,7 @@ function setContextOptions(context: any, options: any) {
   }
 }
 
-function drawLine(fromX: number, fromY: number, toX: number, toY: number, ctx: any) {
+function drawLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number) {
   ctx.beginPath()
   ctx.moveTo(fromX, fromY);
   ctx.lineTo(toX, toY);
@@ -76,14 +76,14 @@ function generateBackground() {
   let ctx = inputCanvas.getContext("2d")!,
     distance = 10,
     lineCount = Math.ceil(inputCanvas.height / distance);
-    
+
   ctx.fillStyle = Options.color
   ctx.lineWidth = 0.25
 
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index;
-    drawLine(0, offsetY, inputCanvas.width, offsetY, ctx)
+    drawLine(ctx, 0, offsetY, inputCanvas.width, offsetY)
   }
 
   // Frame Border
@@ -98,18 +98,19 @@ function generateBackground() {
 function mouseMoveHandler(event: any) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
-    let toX = event.offsetX,
+    let ctx = inputCanvas.getContext('2d')!,
+      toX = event.offsetX,
       toY = event.offsetY,
       fromX = toX - event.movementX,
       fromY = toY - event.movementY;
 
-    drawLine(fromX, fromY, toX, toY, event);
+    drawLine(ctx, fromX, fromY, toX, toY);
   }
 }
 
 function resetCanvas() {
 
-  let ctx = inputCanvas.getContext("2d") !
+  let ctx = inputCanvas.getContext("2d")!
 
   ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
   generateBackground()
