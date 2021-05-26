@@ -1,11 +1,11 @@
 /* ---- GLOBAL VARIABLES ---- */
 const canvasId = "inputCanvas"
 
-const inputCanvas = document.getElementById(canvasId);
+const inputCanvas: HTMLCanvasElement = document.getElementById(canvasId) as HTMLCanvasElement
 
-const sendButton = document.getElementById("send")
-const getButton = document.getElementById("get")
-const resetButton = document.getElementById("reset")
+const sendButton = document.getElementById("send") !
+const getButton = document.getElementById("get") !
+const resetButton = document.getElementById("reset") !
 
 let Config = {
   borderWidth: 2,
@@ -44,7 +44,7 @@ function drawLine(fromX: number, fromY: number, toX: number, toY: number, ctx: a
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-function strokeRoundedRect(ctx: any, x: number, y: number, width: number, height:number, radius: number) {
+function strokeRoundedRect(ctx: any, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
   ctx.lineTo(x, y + height - radius);
@@ -73,20 +73,17 @@ function fillRoundedRect(ctx: any, x: number, y: number, width: number, height: 
 }
 
 function generateBackground() {
-  let distance = 10;
-  // @ts-ignore
-  let lineCount = Math.ceil(inputCanvas!.height / distance);
-  // @ts-ignore
-  let ctx = inputCanvas!.getContext("2d");
-
+  let ctx = inputCanvas.getContext("2d")!,
+    distance = 10,
+    lineCount = Math.ceil(inputCanvas.height / distance);
+    
   ctx.fillStyle = Options.color
   ctx.lineWidth = 0.25
 
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index;
-    // @ts-ignore
-    drawLine(0, offsetY, inputCanvas!.width, offsetY, ctx)
+    drawLine(0, offsetY, inputCanvas.width, offsetY, ctx)
   }
 
   // Frame Border
@@ -94,12 +91,10 @@ function generateBackground() {
   ctx.fillStyle = Options.color
   ctx.lineWidth = 2 * Config.borderWidth
 
-  // @ts-ignore
-  strokeRoundedRect(ctx, 0, 0, inputCanvas!.width, inputCanvas!.height, 5)
+  strokeRoundedRect(ctx, 0, 0, inputCanvas.width, inputCanvas.height, 5)
 }
 
 /* ----- EVENT HANDLER ----- */
-// @ts-ignore
 function mouseMoveHandler(event: any) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
@@ -113,41 +108,23 @@ function mouseMoveHandler(event: any) {
 }
 
 function resetCanvas() {
-  // @ts-ignore
-  let ctx = inputCanvas!.getContext("2d")
-  // @ts-ignore
-  ctx.clearRect(0, 0, inputCanvas!.width, inputCanvas!.height);
+
+  let ctx = inputCanvas.getContext("2d") !
+
+  ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
   generateBackground()
 }
 
 function initCanvas() {
   console.log("Canvas Init")
-  // @ts-ignore
-  inputCanvas!.width = 244
-  // @ts-ignore
-  inputCanvas!.height = 84
+  inputCanvas.width = 244
+  inputCanvas.height = 84
   resetCanvas()
-}
-
-// @ts-ignore
-function mouseMoveHandler(event: any) {
-  // Checks if left mouse button is pressed
-  if (event.buttons === 1) {
-    // @ts-ignore
-    let ctx = inputCanvas!.getContext('2d'),
-      toX = event.offsetX,
-      toY = event.offsetY,
-      fromX = toX - event.movementX,
-      fromY = toY - event.movementY;
-      setContextOptions(ctx, Options)
-    drawLine(fromX, fromY, toX, toY, ctx);
-  }
 }
 
 // Init
 initCanvas()
 
 // Register Listeners
-inputCanvas!.addEventListener("mousemove", mouseMoveHandler);
-
-resetButton!.addEventListener("click", resetCanvas)
+inputCanvas.addEventListener("mousemove", mouseMoveHandler);
+resetButton.addEventListener("click", resetCanvas)

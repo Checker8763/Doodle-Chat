@@ -1,3 +1,4 @@
 # NodeJs
 node_modules
 package-lock.json
+*.js
