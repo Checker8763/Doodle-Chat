@@ -1,12 +1,12 @@
-export function dragUiElement(element) {
+export function dragUiElement(element: any) {
     let posX = 0, posY = 0, posXFetch = 0, posYFetch = 0;
     if (document.getElementById(element.id + "Header")) {
-        document.getElementById(element.id + "Header").onmousedown = dragMouseDown;
+        document.getElementById(element.id + "Header")!.onmousedown = dragMouseDown;
     } else {
         element.onmousedown = dragMouseDown;
     }
 
-    function dragMouseDown(e) {
+    function dragMouseDown(e: any) {
         e = e || window.event;
         e.preventDefault();
         posXFetch = e.clientX;
@@ -15,7 +15,7 @@ export function dragUiElement(element) {
         document.onmousemove = elementDrag;
     }
 
-    function elementDrag(e) {
+    function elementDrag(e: any) {
         e = e || window.event;
         e.preventDefault();
         posX = posXFetch - e.clientX;

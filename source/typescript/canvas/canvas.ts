@@ -1,11 +1,11 @@
 /* ---- GLOBAL VARIABLES ---- */
 const canvasId = "inputCanvas"
 
-const inputCanvas = document.getElementById(canvasId);
+const inputCanvas: HTMLCanvasElement = document.getElementById(canvasId) as HTMLCanvasElement
 
-const sendButton = document.getElementById("send")
-const getButton = document.getElementById("get")
-const resetButton = document.getElementById("reset")
+const sendButton = document.getElementById("send")!
+const getButton = document.getElementById("get")!
+const resetButton = document.getElementById("reset")!
 
 let Config = {
   borderWidth: 2,
@@ -24,7 +24,7 @@ function getDrawCanvas() {
 }
 
 
-function setContextOptions(context, options) {
+function setContextOptions(context: any, options: any) {
   // basic options
   context.fillStyle = options.color;
   context.lineWidth = options.width;
@@ -35,7 +35,7 @@ function setContextOptions(context, options) {
   }
 }
 
-function drawLine(fromX, fromY, toX, toY, ctx) {
+function drawLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number) {
   ctx.beginPath()
   ctx.moveTo(fromX, fromY);
   ctx.lineTo(toX, toY);
@@ -44,7 +44,7 @@ function drawLine(fromX, fromY, toX, toY, ctx) {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-function strokeRoundedRect(ctx, x, y, width, height, radius) {
+function strokeRoundedRect(ctx: any, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
   ctx.lineTo(x, y + height - radius);
@@ -58,7 +58,7 @@ function strokeRoundedRect(ctx, x, y, width, height, radius) {
   ctx.stroke();
 }
 
-function fillRoundedRect(ctx, x, y, width, height, radius) {
+function fillRoundedRect(ctx: any, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
   ctx.lineTo(x, y + height - radius);
@@ -73,9 +73,9 @@ function fillRoundedRect(ctx, x, y, width, height, radius) {
 }
 
 function generateBackground() {
-  let distance = 10,
-    lineCount = Math.ceil(inputCanvas.height / distance),
-    ctx = inputCanvas.getContext("2d");
+  let ctx = inputCanvas.getContext("2d")!,
+    distance = 10,
+    lineCount = Math.ceil(inputCanvas.height / distance);
 
   ctx.fillStyle = Options.color
   ctx.lineWidth = 0.25
@@ -83,7 +83,7 @@ function generateBackground() {
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index;
-    drawLine(0, offsetY, inputCanvas.width, offsetY, ctx)
+    drawLine(ctx, 0, offsetY, inputCanvas.width, offsetY)
   }
 
   // Frame Border
@@ -91,27 +91,27 @@ function generateBackground() {
   ctx.fillStyle = Options.color
   ctx.lineWidth = 2 * Config.borderWidth
 
-  strokeRoundedRect(ctx,
-    0, 0,
-    inputCanvas.width, inputCanvas.height,
-    5)
+  strokeRoundedRect(ctx, 0, 0, inputCanvas.width, inputCanvas.height, 5)
 }
 
 /* ----- EVENT HANDLER ----- */
-function mouseMoveHandler(event) {
+function mouseMoveHandler(event: any) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
-    let toX = event.offsetX,
+    let ctx = inputCanvas.getContext('2d')!,
+      toX = event.offsetX,
       toY = event.offsetY,
       fromX = toX - event.movementX,
       fromY = toY - event.movementY;
 
-    drawLine(fromX, fromY, toX, toY);
+    drawLine(ctx, fromX, fromY, toX, toY);
   }
 }
 
 function resetCanvas() {
-  let ctx = inputCanvas.getContext("2d")
+
+  let ctx = inputCanvas.getContext("2d")!
+
   ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
   generateBackground()
 }
@@ -123,23 +123,9 @@ function initCanvas() {
   resetCanvas()
 }
 
-function mouseMoveHandler(event) {
-  // Checks if left mouse button is pressed
-  if (event.buttons === 1) {
-    let ctx = inputCanvas.getContext('2d'),
-      toX = event.offsetX,
-      toY = event.offsetY,
-      fromX = toX - event.movementX,
-      fromY = toY - event.movementY;
-      setContextOptions(ctx, Options)
-    drawLine(fromX, fromY, toX, toY, ctx);
-  }
-}
-
 // Init
 initCanvas()
 
 // Register Listeners
 inputCanvas.addEventListener("mousemove", mouseMoveHandler);
-
 resetButton.addEventListener("click", resetCanvas)

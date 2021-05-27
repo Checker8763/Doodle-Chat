@@ -1,4 +1,4 @@
-export function clearCanvas (ctx) {
+export function clearCanvas (ctx: any) {
     let screenHeight = window.innerHeight;
     let screenWidth = window.innerWidth;
     ctx.fillStyle = "rgb(255, 255, 255)";
