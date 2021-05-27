@@ -1,7 +1,7 @@
 # NodeJs
 node_modules
 package-lock.json
-*.js
+website/script
 
 # CSS / SASS
-*.css
+website/css
