@@ -7,14 +7,14 @@
     "dev": "npx http-server website 8080 -o",
     "sass_compile": "node-sass --include-path sass website/sass/style.sass website/css/style.css",
     "typescript_compile": "tsc --build tsconfig.json",
-    "complete_compile": "tsc --build tsconfig.json && node-sass --include-path sass sass/style.sass css/style.css"
+    "build": "npm run typescript_compile && npm run sass_compile"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Checker8763/Doodle-Chat"
   },
   "author": "Raffael E. Schaefer, Tomek Kochanowsky",
-  "license": "GPL v3",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/Checker8763/Doodle-Chat/issues"
   },
