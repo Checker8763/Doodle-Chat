@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "npx http-server website 8080 -o",
-    "sass_compile": "node-sass --include-path sass website/sass/style.sass website/css/style.css",
+    "sass_compile": "node-sass --include-path sass source/sass/style.sass website/css/style.css",
     "typescript_compile": "tsc --build tsconfig.json",
     "build": "npm run typescript_compile && npm run sass_compile"
   },
