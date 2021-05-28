@@ -1,6 +1,14 @@
+# WebStorm
+.idea
 # NodeJs
 node_modules
 package-lock.json
+#Why?
+#My Dear Friends I ask you why do you exclude this directory from being transmitted to this fine service of Github?
+#I am truely shocked and my pain is immeasurable.
+#Tell me why?
+#Ain't nothin' but a heartache
+#Only a sussy Baka would do this
 website/script
 
 # CSS / SASS
