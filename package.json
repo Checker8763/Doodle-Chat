@@ -5,9 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "npx http-server website 8080 -o",
-    "sass_compile": "npx sass --no-source-map source/sass/:website/css/",
-    "typescript_compile": "tsc --build tsconfig.json",
-    "minify_js": "npx uglifyjs-folder -oe ./website/script/ ",
+    "sass_compile": "npx --no-install sass --no-source-map source/sass/:website/css/",
+    "typescript_compile": "npx --no-install tsc",
+    "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
     "build": "npm run typescript_compile && npm run minify_js && npm run sass_compile"
   },
   "repository": {
