@@ -7,15 +7,26 @@ const sendButton = document.getElementById("send")!
 const getButton = document.getElementById("get")!
 const resetButton = document.getElementById("reset")!
 
+// Config object for backend
 let Config = {
-  borderWidth: 2,
+  Frame: {
+    borderWidth: 2,
+  },
+  Background: {
+    stripeDistance: 16,
+    stripeOffset: 3
+  }
 }
 
+// option object to hold user preferences
 let Options = {
-  width: 2,
-  color: "black",
-  blur: false,
-  blurWidth: 1,
+  // Drawing context
+  Drawing: {
+    width: 2,
+    color: "black",
+    blur: false,
+    blurWidth: 1,
+  },
 };
 
 /* ---- FUNCTIONS ---- */
@@ -24,14 +35,14 @@ function getDrawCanvas() {
 }
 
 
-function setContextOptions(context: any, options: any) {
+function applyUserOptions(context: any) {
   // basic options
-  context.fillStyle = options.color;
-  context.lineWidth = options.width;
+  context.fillStyle = Options.Drawing.color;
+  context.lineWidth = Options.Drawing.width;
   // optional
-  if (options.blur) {
-    context.shadowColor = options.color;
-    context.shadowBlur = options.blurWidth;
+  if (Options.Drawing.blur) {
+    context.shadowColor = Options.Drawing.color;
+    context.shadowBlur = Options.Drawing.blurWidth;
   }
 }
 
@@ -74,22 +85,23 @@ function fillRoundedRect(ctx: any, x: number, y: number, width: number, height: 
 
 function generateBackground() {
   let ctx = inputCanvas.getContext("2d")!,
-    distance = 10,
-    lineCount = Math.ceil(inputCanvas.height / distance);
+    distance = Config.Background.stripeDistance,
+    offset = Config.Background.stripeOffset,
+    lineCount = Math.floor(inputCanvas.height / distance);
 
-  ctx.fillStyle = Options.color
+  ctx.fillStyle = Options.Drawing.color
   ctx.lineWidth = 0.25
 
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
-    let offsetY = distance * index;
+    let offsetY = distance * index + offset;
     drawLine(ctx, 0, offsetY, inputCanvas.width, offsetY)
   }
 
   // Frame Border
   // Set Style
-  ctx.fillStyle = Options.color
-  ctx.lineWidth = 2 * Config.borderWidth
+  ctx.strokeStyle = Options.Drawing.color
+  ctx.lineWidth = 2 * Config.Frame.borderWidth
 
   strokeRoundedRect(ctx, 0, 0, inputCanvas.width, inputCanvas.height, 5)
 }
