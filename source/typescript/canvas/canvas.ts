@@ -35,7 +35,7 @@ function getDrawCanvas() {
 }
 
 
-function applyUserOptions(context: any) {
+function applyUserOptions(context: CanvasRenderingContext2D) {
   // basic options
   context.fillStyle = Options.Drawing.color;
   context.lineWidth = Options.Drawing.width;
@@ -46,7 +46,7 @@ function applyUserOptions(context: any) {
   }
 }
 
-function drawLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number) {
+function strokeLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number) {
   ctx.beginPath()
   ctx.moveTo(fromX, fromY);
   ctx.lineTo(toX, toY);
@@ -55,7 +55,7 @@ function drawLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, t
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-function strokeRoundedRect(ctx: any, x: number, y: number, width: number, height: number, radius: number) {
+function strokeRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
   ctx.lineTo(x, y + height - radius);
@@ -69,7 +69,7 @@ function strokeRoundedRect(ctx: any, x: number, y: number, width: number, height
   ctx.stroke();
 }
 
-function fillRoundedRect(ctx: any, x: number, y: number, width: number, height: number, radius: number) {
+function fillRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
   ctx.lineTo(x, y + height - radius);
@@ -89,25 +89,23 @@ function generateBackground() {
     offset = Config.Background.stripeOffset,
     lineCount = Math.floor(inputCanvas.height / distance);
 
-  ctx.fillStyle = Options.Drawing.color
+  ctx.strokeStyle = Options.Drawing.color
   ctx.lineWidth = 0.25
 
   // Draw background stripes
   for (let index = 1; index < lineCount; index++) {
     let offsetY = distance * index + offset;
-    drawLine(ctx, 0, offsetY, inputCanvas.width, offsetY)
+    strokeLine(ctx, 0, offsetY, inputCanvas.width, offsetY)
   }
 
   // Frame Border
-  // Set Style
-  ctx.strokeStyle = Options.Drawing.color
   ctx.lineWidth = 2 * Config.Frame.borderWidth
 
   strokeRoundedRect(ctx, 0, 0, inputCanvas.width, inputCanvas.height, 5)
 }
 
 /* ----- EVENT HANDLER ----- */
-function mouseMoveHandler(event: any) {
+function mouseMoveHandler(event: MouseEvent) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
     let ctx = inputCanvas.getContext('2d')!,
@@ -116,12 +114,11 @@ function mouseMoveHandler(event: any) {
       fromX = toX - event.movementX,
       fromY = toY - event.movementY;
 
-    drawLine(ctx, fromX, fromY, toX, toY);
+    strokeLine(ctx, fromX, fromY, toX, toY);
   }
 }
 
 function resetCanvas() {
-
   let ctx = inputCanvas.getContext("2d")!
 
   ctx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
