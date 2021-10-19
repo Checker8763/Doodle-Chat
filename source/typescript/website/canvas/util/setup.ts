@@ -1,4 +1,4 @@
-export function setupHighDpiCanvas (canvas: HTMLCanvasElement) {
+export function setupHighDpiCanvas (canvas: HTMLCanvasElement): CanvasRenderingContext2D | null {
     let dpr = window.devicePixelRatio || 1;
     let rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
