@@ -9,8 +9,9 @@
     "sass_compile": "npx --no-install sass --no-source-map source/sass/:website/css/",
     "typescript_compile": "npx --no-install tsc",
     "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
-    "build_dev": "npm run typescript_compile && npm run sass_compile",
-    "build": "npm run clear && npm run typescript_compile && npm run minify_js && npm run sass_compile"
+    "mv_website_js": "node scripts/mv",
+    "build_dev": "npm run typescript_compile && npm run mv_website_js && npm run sass_compile",
+    "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile"
   },
   "repository": {
     "type": "git",
