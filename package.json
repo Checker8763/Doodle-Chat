@@ -11,7 +11,8 @@
     "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
     "mv_website_js": "node scripts/mv",
     "build_dev": "npm run typescript_compile && npm run mv_website_js && npm run sass_compile",
-    "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile"
+    "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile",
+    "test": "npm run typescript_compile && npx jest"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,15 @@
     "terser": "^5.7.0"
   },
   "dependencies": {
-    "sass": "^1.34.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "sass": "^1.43.4",
+    "terser": "^5.7.0",
+    "ts-jest": "^27.0.7",
     "socket.io": "^4.3.1",
     "typescript": "^3.9.9",
     "uglifyjs-folder": "^2.0.0"
