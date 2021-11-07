@@ -1,5 +1,10 @@
+import {color} from "./classes/color.js";
+
 /* ---- GLOBAL VARIABLES ---- */
+
 const canvasId = "inputCanvas"
+
+const defaultColor: color = new color();
 
 const inputCanvas: HTMLCanvasElement = document.getElementById(canvasId) as HTMLCanvasElement
 const inputCanvasCtx = inputCanvas.getContext('2d')!
