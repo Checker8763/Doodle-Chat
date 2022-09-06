@@ -5,11 +5,11 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "npx http-server website 8080 -o",
-    "clear": "node server/scripts/clear.js",
-    "sass_compile": "sass client/src/sass/style.sass client/public/css/style.css --watch",
+    "clear": "node scripts/clear.js",
+    "sass_compile": "sass client/sass/style.sass client/public/css/style.css --watch",
     "typescript_compile": "npx --no-install tsc",
     "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
-    "mv_website_js": "node server/scripts/mv",
+    "mv_website_js": "node scripts/mv",
     "build_dev": "npm run typescript_compile && npm run mv_website_js && npm run sass_compile",
     "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile"
   },
