@@ -5,14 +5,24 @@
     <title>Doodle Chat</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="assets/logo/logo_website.png">
-    <script src="js/canvas/canvas.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/canvas.js" defer></script>
 </head>
 <body>
     <main>
-        <div id="ui">
-            <canvas id="picture2"></canvas>
-            <canvas id="picture1"></canvas>
-            <canvas id="inputCanvas"></canvas>
+        <div style="display: flex;">
+            <div class="pixel indigo size-sm neon"></div>
+            <div class="pixel yellow size-md neon"></div>
+            <div class="pixel teal size-lg neon"></div>
+            <div class="pixel rose size-xl neon"></div>
+            <div class="pixel emerald size-sm neon"></div>
+            <div class="pixel slate size-md neon"></div>
+        </div>
+        <div id="ui" x-cloak="">
+            <div id="history">
+                <canvas id="lastPost"></canvas>
+            </div>
+            <canvas class="input"></canvas>
             <div>
                 <img src="assets/icons/DoodleChat_send.png" alt="send" id="send">
                 <img src="assets/icons/DoodleChat_get.png" alt="get" id="get">

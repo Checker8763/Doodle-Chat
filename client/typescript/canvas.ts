@@ -1,15 +1,27 @@
 /* ---- GLOBAL VARIABLES ---- */
-const canvasId = "inputCanvas"
-
-const inputCanvas: HTMLCanvasElement = document.getElementById(canvasId) as HTMLCanvasElement
-const inputCanvasCtx = inputCanvas.getContext('2d')!
-
-const sendButton = document.getElementById("send")!
-const getButton = document.getElementById("get")!
-const resetButton = document.getElementById("reset")!
+const inputs = {
+  canvas: {
+    element: document.querySelector("canvas.input"),
+    //@ts-ignore
+    context: document.querySelector("canvas.input").getContext('2d')
+  },
+  btn: {
+    send: document.getElementById("send"),
+    get: document.getElementById("get"),
+    reset: document.getElementById("reset")
+  }
+};
+var posts = {
+  all: document.querySelectorAll("#history canvas"),
+  last: {
+    element: document.getElementById("lastPost"),
+    //@ts-ignore
+    context: document.getElementById("lastPost").getContext('2d')
+  }
+};
 
 // Config object for backend
-let Config = {
+const Config = {
   height: 84,
   width: 244,
   Frame: {
@@ -135,37 +147,35 @@ function mouseMoveHandler(event: MouseEvent) {
       fromX = toX - event.movementX,
       fromY = toY - event.movementY;
 
-    strokeLine(inputCanvasCtx, fromX, fromY, toX, toY);
+    strokeLine(inputs.canvas.context, fromX, fromY, toX, toY);
   }
 }
 
 function debugSend(data: string) {
-  let canvas1 = document.getElementById('picture1') as HTMLCanvasElement,
-    ctx1 = canvas1.getContext('2d')!
-    clearCanvas(ctx1)
+    clearCanvas(posts.last.context)
 
-  drawImageFromDataUrl(ctx1, data)
+  drawImageFromDataUrl(posts.last.context, data)
 }
 
 function sendButtonHandler() {
   // get image data from canvas
-  let data = getCanvasDataUrl(inputCanvas)
+  //@ts-ignore
+  let data = getCanvasDataUrl(inputs.canvas.element)
   // sendData
   debugSend(data)
 }
 
 function resetButtonHandler() {
-  clearCanvas(inputCanvasCtx);
-  generateBackground(inputCanvasCtx)
+  clearCanvas(inputs.canvas.context);
+  generateBackground(inputs.canvas.context)
 }
 
 function getButtonHandler() {
-  //get selected Canvas
-  let canvas1 = document.getElementById('picture1') as HTMLCanvasElement,
   // get its png data
-  data = canvas1.toDataURL()
+      //@ts-ignore
+  const data = posts.last.element!.toDataURL()
   // draw it over the inputCanvas
-  drawImageFromDataUrl(inputCanvasCtx, data)
+  drawImageFromDataUrl(inputs.canvas.context, data)
 }
 
 // Init
@@ -180,15 +190,13 @@ function initCanvas(ctx: CanvasRenderingContext2D) {
   generateBackground(ctx)
 }
 
-initCanvas(inputCanvasCtx)
-
-let canvas1 = document.getElementById('picture1') as HTMLCanvasElement,
-ctx1 = canvas1.getContext('2d')!
-initCanvas(ctx1)
-
-// Register Listeners
-inputCanvas.addEventListener("mousemove", mouseMoveHandler);
-
-resetButton.addEventListener("click", resetButtonHandler)
-sendButton.addEventListener('click', sendButtonHandler)
-getButton.addEventListener('click', getButtonHandler)
+initCanvas(inputs.canvas.context);
+for (let i = 0; i < posts.all.length; i++) {
+  //@ts-ignore
+  initCanvas(posts.all[i].getContext('2d'));
+}
+// @ts-ignore
+inputs.canvas.element.addEventListener("mousemove", mouseMoveHandler);
+inputs.btn.reset!.addEventListener("click", resetButtonHandler);
+inputs.btn.send!.addEventListener('click', sendButtonHandler);
+inputs.btn.get!.addEventListener('click', getButtonHandler);
