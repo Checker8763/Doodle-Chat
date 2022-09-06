@@ -8,5 +8,5 @@ dist
 
 # Compiled CSS / JS
 # run npm build
-website/css
-website/script
+client/public/css
+client/public/js
