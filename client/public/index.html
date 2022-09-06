@@ -8,25 +8,17 @@
     <script src="js/canvas/canvas.js" defer></script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="mainUI">
-            <canvas class="panel" id="picture2"></canvas>
-            <canvas class="panel" id="picture1"></canvas>
-            <canvas class="panel" id="inputCanvas"></canvas>
-            <div class="panel" id="tools">
-                <div id="toolbarBig">
-                    <div id="send">
-                        <img src="assets/icons/DoodleChat_send.png" alt="send">
-                    </div>
-                    <div id="get">
-                        <img src="assets/icons/DoodleChat_get.png" alt="get">
-                    </div>
-                    <div id="reset">
-                        <img src="assets/icons/DoodleChat_reset.png" alt="reset">
-                    </div>
-                </div>
+    <main>
+        <div id="ui">
+            <canvas id="picture2"></canvas>
+            <canvas id="picture1"></canvas>
+            <canvas id="inputCanvas"></canvas>
+            <div>
+                <img src="assets/icons/DoodleChat_send.png" alt="send" id="send">
+                <img src="assets/icons/DoodleChat_get.png" alt="get" id="get">
+                <img src="assets/icons/DoodleChat_reset.png" alt="reset" id="reset">
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

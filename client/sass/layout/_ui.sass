@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as var
+@use "../abstracts/colors" as col
+
+main
+  height: 100vh
+  width: 100vw
+
+  display: grid
+  place-items: center
+
+  background-size: 400%
+  animation: tide 25s ease-in-out infinite
+
+  #ui
+    height: var.$userUIHeight
+    width: var.$userUIWidth
+
+    background-color: map-get(col.$user,"background")
+
+    border: 5px solid map-get(col.$user,"background")
+    border-radius: 15px
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
+
+    canvas
+      height: var.$canvasHeight
+      width: var.$canvasWidth
+      margin: var.$userUIMargins
+      background-color: white
+      border: var.$userUICanvasBorder solid black
+      border-radius: 5px
+
+    div
+      display: flex
+      flex-flow: column nowrap
+      align-content: space-between
+
+      img
+        height: 30px
+        width: 30px
