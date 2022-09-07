@@ -12,17 +12,15 @@ main
   place-items: center
 
   #ui
-    @media (max-width: map-get(var.$screenSize, "md"))
+    @media (max-width: map-get(var.$screenSize, "sm"))
       height: 100%
       width: 100%
+      border-radius: 0
     height: fit-content
     width: fit-content
 
     background-color: map-get(col.$slate, "600")
-
-    //border: 5px solid map-get(col.$slate, "600")
     border-radius: 15px
-
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
 
     canvas
