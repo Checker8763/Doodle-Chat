@@ -1,12 +1,12 @@
-$userUIPanelAmount: 4
-$userUISizeScale: 1
+$screenSize: ("sm": 500px, "md": 900px, "lg": 1500px)
+$sizes: ("sm": 1, "md": 2, "lg": 4, "xl": 8, "2xl": 16)
 
-$canvasWidth: $userUISizeScale*244px
-$canvasHeight: $userUISizeScale*84px
-$userUIMargins: $userUISizeScale*4px
-$userUICanvasBorder: $userUISizeScale*1px
+$canvasWidth: 244px
+$canvasHeight: 84px
+$userUIMargins: 4px
+$userUICanvasBorder: 1px
 
-$iconSize: $userUISizeScale*25px
+$iconSize: 25px
 
-$userUIHeight: ($canvasHeight*4)+(($userUIMargins*$userUIPanelAmount*2)+$userUIMargins*3)+($userUICanvasBorder*($userUIPanelAmount - 1)*2)
+$userUIHeight: ($canvasHeight*4)+(($userUIMargins*4*2)+$userUIMargins*3)+($userUICanvasBorder*(4 - 1)*2)
 $userUIWidth: $canvasWidth+($userUIMargins*2)+($userUICanvasBorder*2)
