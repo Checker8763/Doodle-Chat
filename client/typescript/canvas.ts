@@ -11,6 +11,7 @@ const inputs = {
     reset: document.getElementById("reset")
   }
 };
+
 var posts = {
   all: document.querySelectorAll("#history canvas"),
   last: {
@@ -47,7 +48,6 @@ let Options = {
 /* ---- FUNCTIONS ---- */
 function clearCanvas(ctx: CanvasRenderingContext2D) {
   if (ctx.canvas == null) throw Error("[function clearCanvas] canvas is null")
-
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
