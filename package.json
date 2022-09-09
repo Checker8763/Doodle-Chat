@@ -38,6 +38,8 @@
     "terser": "^5.7.0"
   },
   "dependencies": {
+    "express": "^4.18.1",
+    "sass": "^1.34.0",
     "socket.io": "^4.3.1",
     "typescript": "^3.9.9",
     "uglifyjs-folder": "^3.1.3"
