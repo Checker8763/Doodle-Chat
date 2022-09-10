@@ -1,9 +1,16 @@
 @use "../abstracts/fonts"
+@use "../abstracts/variables" as var
 
 *
   margin: 0
   padding: 0
   font-family: 'Roboto Mono', monospace
+
+body
+  display: flex
+  @media (max-width: map-get(var.$screenSize, "md"))
+    flex-flow: column nowrap
+  flex-flow: row nowrap
 
 [x-cloak]
   display: none
