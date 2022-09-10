@@ -17,12 +17,11 @@ aside
   div
     display: flex
     height: 100%
-    width: fit-content
+    width: 90%
     @media (max-width: map-get(var.$screenSize, "md"))
       align-self: center
       margin-left: 5px
     @media (min-width: map-get(var.$screenSize, "md"))
-      margin-top: 10px
       flex-flow: column nowrap
     align-self: flex-start
 
@@ -31,7 +30,7 @@ aside
       @media (max-width: map-get(var.$screenSize, "md"))
         height: 80%
         width: auto
-        align-self: center
+      align-self: center
       width: 70%
       height: auto
       @media (min-width: map-get(var.$screenSize, "md"))
@@ -39,6 +38,23 @@ aside
         justify-self: center
 
     p
+      margin-top: 5px
       @media (max-width: map-get(var.$screenSize, "md"))
         display: none
       text-align: center
+      font-weight: bolder
+      color: map-get(col.$slate, "600")
+      @media (prefers-color-scheme: dark)
+        color: map-get(col.$slate, "800")
+
+    hr
+      @media (min-width: map-get(var.$screenSize, "md"))
+        margin-top: 10px
+      border: solid 1px map-get(col.$slate, "500")
+      @media (prefers-color-scheme: dark)
+        border-color: map-get(col.$slate, "700")
+        border-width: 0.5px
+      @media (max-width: map-get(var.$screenSize, "md"))
+        height: 80%
+        margin-left: 5px
+        align-self: center

@@ -1,6 +1,7 @@
 /*Imports*/
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
+const autoprefixer = require("gulp-autoprefixer")
 const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const purgeCss = require('gulp-purgecss');
@@ -22,7 +23,9 @@ const config = {
 /*Tasks*/
 const compileSass = () => {
     return gulp.src(`${config.in.client}/sass/**/*.sass`)
-        .pipe(sass()).pipe(gulp.dest(`${config.out}/css`));
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(gulp.dest(`${config.out}/css`));
 }
 
 const purge = () => {
