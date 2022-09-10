@@ -2,16 +2,43 @@
 @use "../abstracts/variables" as var
 
 aside
+  display: flex
   @media (max-width: map-get(var.$screenSize, "md"))
     height: 10vh
     width: 100vw
   height: 100vh
   width: 25vw
+  @media (min-width: map-get(var.$screenSize, "md"))
+    justify-content: center
   background-color: map-get(col.$slate, "400")
   @media (prefers-color-scheme: dark)
     background-color: map-get(col.$slate, "600")
 
-  img
-    border-radius: 100%
-    height: auto
-    width: 25%
+  div
+    display: flex
+    height: 100%
+    width: fit-content
+    @media (max-width: map-get(var.$screenSize, "md"))
+      align-self: center
+      margin-left: 5px
+    @media (min-width: map-get(var.$screenSize, "md"))
+      margin-top: 10px
+      flex-flow: column nowrap
+    align-self: flex-start
+
+    img
+      border-radius: 10%
+      @media (max-width: map-get(var.$screenSize, "md"))
+        height: 80%
+        width: auto
+        align-self: center
+      width: 70%
+      height: auto
+      @media (min-width: map-get(var.$screenSize, "md"))
+        margin-top: 10px
+        justify-self: center
+
+    p
+      @media (max-width: map-get(var.$screenSize, "md"))
+        display: none
+      text-align: center

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Doodle Chat</title>
@@ -8,9 +8,12 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/canvas.js" defer></script>
 </head>
-<body>
+<body x-cloak x-data="{username: 'User'}">
 <aside>
-    <img alt="logo" src="assets/logo/logo_website.png">
+    <div>
+        <img alt="logo" x-bind:src="`https://avatars.dicebear.com/api/pixel-art-neutral/${username}.svg`">
+        <p x-text="username"></p>
+    </div>
 </aside>
 <main>
     <div id="ui">

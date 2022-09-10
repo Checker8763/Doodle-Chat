@@ -1,12 +1,12 @@
-# WebStorm
+# WebStorm & vscode
 .idea
+.vscode
+
 # NodeJs
 node_modules
 
-# js compile output dir
+# gulp compile output dir
 dist
 
-# Compiled CSS / JS
-# run npm build
-client/public/css
-client/public/js
+# MacOS files
+./**/.DS_Store
