@@ -1,8 +1,12 @@
 @use "../abstracts/variables" as var
 @use "../abstracts/colors" as col
 
-
 main
+  position: fixed
+  @media (min-width: map-get(var.$screenSize, "md"))
+    left: 25vw
+  @media (max-width: map-get(var.$screenSize, "md"))
+    top: 10vh
   @media (max-width: map-get(var.$screenSize, "md"))
     height: 90vh
     width: 100vw

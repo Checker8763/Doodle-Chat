@@ -5,16 +5,24 @@
     <title>Doodle Chat</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="assets/logo/logo_website.png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/UserService.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/canvas.js" defer></script>
 </head>
-<body x-cloak x-data="{username: 'User'}">
+<body>
 <aside>
-    <div>
+    <div id="user" x-cloak x-data="{username: 'Checker8763'}">
         <img alt="logo" x-bind:src="`https://avatars.dicebear.com/api/pixel-art-neutral/${username}.svg`">
         <p x-text="username"></p>
         <hr>
     </div>
+    <template x-cloak x-data="{friends: {}}" x-init="friends = await UserService.getFriends()" x-for="friend in friends">
+        <div class="friend">
+            <img alt="logo" x-bind:src="`https://avatars.dicebear.com/api/pixel-art/${friend.name}.svg`">
+            <p x-text="friend.name"></p>
+        </div>
+    </template>
 </aside>
 <main>
     <div id="ui">
