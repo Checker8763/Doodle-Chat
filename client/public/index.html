@@ -7,8 +7,8 @@
     <link rel="icon" href="assets/logo/logo_website.png">
     <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
     <script src="js/UserService.js" defer></script>
+    <script defer src="js/CanvasWorker.js"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="js/canvas.js" defer></script>
 </head>
 <body>
 <aside>
@@ -17,9 +17,11 @@
         <p x-text="username"></p>
         <hr>
     </div>
-    <template x-cloak x-data="{friends: {}}" x-show.transition="friends" x-init="friends = await UserService.getFriends()" x-for="friend in friends">
+    <template x-cloak x-data="{friends: null}" x-for="friend in friends"
+              x-init="friends = await UserService.getFriends()" x-show.transition="friends">
         <div class="friend">
-            <img x-bind:alt="`Profile picture of ${friend.name}`" x-bind:src="`https://avatars.dicebear.com/api/pixel-art/${friend.name}.svg`">
+            <img x-bind:alt="`Profile picture of ${friend.name}`"
+                 x-bind:src="`https://avatars.dicebear.com/api/pixel-art/${friend.name}.svg`">
             <p x-text="friend.name"></p>
         </div>
     </template>
@@ -29,7 +31,7 @@
         <div id="history">
             <canvas id="lastPost"></canvas>
         </div>
-        <canvas class="input"></canvas>
+        <canvas class="input" x-init="new CanvasWorker(document.querySelector('canvas.input'), true)"></canvas>
         <div>
             <div class="pixel size-sm teal" id="send">
                 <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"

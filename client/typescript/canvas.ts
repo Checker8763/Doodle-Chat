@@ -46,15 +46,28 @@ let Options = {
 };
 
 /* ---- FUNCTIONS ---- */
+/**
+ * @deprecated
+ * @param ctx
+ */
 function clearCanvas(ctx: CanvasRenderingContext2D) {
   if (ctx.canvas == null) throw Error("[function clearCanvas] canvas is null")
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
+/**
+ * @deprecated
+ * @param canvas
+ */
 function getCanvasDataUrl(canvas: HTMLCanvasElement) {
   return canvas.toDataURL('image/png')
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ * @param data
+ */
 function drawImageFromDataUrl(ctx: CanvasRenderingContext2D, data: string) {
   let img = new Image();
   img.src = data;
@@ -63,6 +76,10 @@ function drawImageFromDataUrl(ctx: CanvasRenderingContext2D, data: string) {
   }
 }
 
+/**
+ * @deprecated
+ * @param context
+ */
 function applyUserOptions(context: CanvasRenderingContext2D) {
   // basic options
   context.fillStyle = Options.Drawing.color;
@@ -74,6 +91,14 @@ function applyUserOptions(context: CanvasRenderingContext2D) {
   }
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ * @param fromX
+ * @param fromY
+ * @param toX
+ * @param toY
+ */
 function strokeLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number) {
   ctx.beginPath()
   ctx.moveTo(fromX, fromY);
@@ -82,6 +107,15 @@ function strokeLine(ctx: CanvasRenderingContext2D, fromX: number, fromY: number,
   ctx.stroke();
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param radius
+ */
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
 function strokeRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
@@ -98,6 +132,15 @@ function strokeRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, 
   ctx.stroke();
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param radius
+ */
 function fillRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number) {
   ctx.beginPath();
   ctx.moveTo(x, y + radius);
@@ -113,12 +156,16 @@ function fillRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, wi
   ctx.fill();
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ */
 function generateBackground(ctx: CanvasRenderingContext2D) {
   if (ctx.canvas == null) throw Error("[function generateBackground] canvas is null")
 
   let distance = Config.Background.stripeDistance,
-    offset = Config.Background.stripeOffset,
-    lineCount = Math.floor(ctx.canvas.height / distance);
+      offset = Config.Background.stripeOffset,
+      lineCount = Math.floor(ctx.canvas.height / distance);
 
   clearCanvas(ctx)
 
@@ -139,24 +186,35 @@ function generateBackground(ctx: CanvasRenderingContext2D) {
 }
 
 /* ----- EVENT HANDLER ----- */
+/**
+ * @deprecated
+ * @param event
+ */
 function mouseMoveHandler(event: MouseEvent) {
   // Checks if left mouse button is pressed
   if (event.buttons === 1) {
     let toX = event.offsetX,
-      toY = event.offsetY,
-      fromX = toX - event.movementX,
-      fromY = toY - event.movementY;
+        toY = event.offsetY,
+        fromX = toX - event.movementX,
+        fromY = toY - event.movementY;
 
     strokeLine(inputs.canvas.context, fromX, fromY, toX, toY);
   }
 }
 
+/**
+ * de
+ * @param data
+ */
 function debugSend(data: string) {
-    clearCanvas(posts.last.context)
+  clearCanvas(posts.last.context)
 
   drawImageFromDataUrl(posts.last.context, data)
 }
 
+/**
+ * @deprecated
+ */
 function sendButtonHandler() {
   // get image data from canvas
   //@ts-ignore
@@ -165,31 +223,48 @@ function sendButtonHandler() {
   debugSend(data)
 }
 
+/**
+ * @deprecated
+ */
 function resetButtonHandler() {
   clearCanvas(inputs.canvas.context);
   generateBackground(inputs.canvas.context)
 }
 
+/**
+ * @deprecated
+ */
 function getButtonHandler() {
   // get its png data
-      //@ts-ignore
+  //@ts-ignore
   const data = posts.last.element!.toDataURL()
   // draw it over the inputCanvas
   drawImageFromDataUrl(inputs.canvas.context, data)
 }
 
 // Init
+/**
+ * @deprecated
+ * @param ctx
+ */
 function configureCanvas(ctx: CanvasRenderingContext2D) {
   ctx.canvas.width = Config.width
   ctx.canvas.height = Config.height
   ctx.imageSmoothingEnabled = false
 }
 
+/**
+ * @deprecated
+ * @param ctx
+ */
 function initCanvas(ctx: CanvasRenderingContext2D) {
   configureCanvas(ctx)
   generateBackground(ctx)
 }
 
+/**
+ * @deprecated
+ */
 initCanvas(inputs.canvas.context);
 for (let i = 0; i < posts.all.length; i++) {
   //@ts-ignore

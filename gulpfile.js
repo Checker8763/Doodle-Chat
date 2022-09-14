@@ -81,3 +81,4 @@ exports.compileHTML = compileHTML;
 exports.optimizeAssets = optimizeAssets;
 exports.watch = watch;
 exports.run = gulp.parallel(gulp.series(compileHTML, compileSass, purge, minifyCss), optimizeAssets, gulp.series(compileTypescript, compress));
+exports.ts = gulp.series(compileTypescript, compress);
