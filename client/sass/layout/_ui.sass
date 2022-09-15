@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as var
+@use "../abstracts/colors" as col
+
+main
+  position: fixed
+  @media (min-width: map-get(var.$screenSize, "md"))
+    left: 25vw
+  @media (max-width: map-get(var.$screenSize, "md"))
+    top: 10vh
+  @media (max-width: map-get(var.$screenSize, "md"))
+    height: 90vh
+    width: 100vw
+  height: 100vh
+  width: 75vw
+  @media (prefers-color-scheme: dark)
+    background-color: map-get(col.$slate, "800")
+  background-color: map-get(col.$slate, "200")
+  display: grid
+  place-items: center
+
+  #ui
+    @media (max-width: map-get(var.$screenSize, "md"))
+      height: 100%
+      width: 100%
+      border-radius: 0
+    height: fit-content
+    width: fit-content
+
+    background-color: map-get(col.$slate, "600")
+    border-radius: 15px
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
+
+    canvas
+      width: 244px
+      height: 84px
+      margin: 4px
+      background-color: white
+      border: 1px solid map-get(col.$slate, "900")
+      border-radius: 5px
+
+    div
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-between
+
+      img
+        height: 30px
+        width: 30px

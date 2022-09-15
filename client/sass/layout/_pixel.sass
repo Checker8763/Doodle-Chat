@@ -1,0 +1,35 @@
+@use "../abstracts/colors" as col
+@use "../abstracts/variables" as var
+
+.pixel
+  height: 64px
+  width: 64px
+  border-radius: 5px
+  margin: 5px
+
+  //Colors
+
+  @each $name, $color in col.$all
+    &.#{$name}
+      @media (prefers-color-scheme: dark)
+        background: linear-gradient(225deg, map-get($color, "300"), map-get($color, "500"))
+      background: linear-gradient(225deg, map-get($color, "200"), map-get($color, "400"))
+
+      &.neon
+        @media (prefers-color-scheme: dark)
+          box-shadow:  -7px 7px 14px opacify(map-get($color, "800"),0.4), 7px -7px 14px opacify(map-get($color, "900"), 0.4)
+        box-shadow:  -7px 7px 14px opacify(map-get($color, "200"),0.4), 7px -7px 14px opacify(map-get($color, "300"), 0.4)
+
+  //size
+
+  @each $name, $factor in var.$sizes
+    &.size-#{$name}
+      height: 32px * $factor
+      width: 32px * $factor
+      border-radius: 2.5px * $factor
+
+  //spin
+
+  @for $rot from 1 to 8
+    &.spin-#{$rot*45}
+      transform: rotate(#{$rot*45}deg)

@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "npx http-server website 8080 -o",
     "clear": "node scripts/clear.js",
-    "sass_compile": "npx --no-install sass --no-source-map source/sass/:website/css/",
+    "sass_compile": "sass client/sass/style.sass client/public/css/style.css --watch",
     "typescript_compile": "npx --no-install tsc",
+    "watch": "gulp watch",
+    "init": "gulp run",
     "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
     "mv_website_js": "node scripts/mv",
     "build_dev": "npm run typescript_compile && npm run mv_website_js && npm run sass_compile",
@@ -24,13 +26,25 @@
   },
   "homepage": "https://github.com/Checker8763/Doodle-Chat#readme",
   "devDependencies": {
-    "http-server": "^0.12.3",
-    "terser": "^5.7.0"
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-purgecss": "^4.1.3",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "http-server": "^14.1.1",
+    "sass": "^1.54.9",
+    "terser": "^5.7.0",
+    "typescript": "^4.8.3"
   },
   "dependencies": {
-    "sass": "^1.34.0",
+    "express": "^4.18.1",
     "socket.io": "^4.3.1",
-    "typescript": "^3.9.9",
-    "uglifyjs-folder": "^2.0.0"
+    "uglifyjs-folder": "^3.1.3"
   }
 }
