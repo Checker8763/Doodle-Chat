@@ -1,3 +1,8 @@
+//@ts-ignore
+const client = new PocketBase('http://127.0.0.1:8090');
+
+console.log(client)
+
 const config = {
     url: "https://jsonplaceholder.typicode.com/users"
 }

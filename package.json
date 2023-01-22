@@ -13,7 +13,8 @@
     "minify_js": "npx --no-install uglifyjs-folder --log-level warning -x .js ./website/script/ -eo ./website/script/",
     "mv_website_js": "node scripts/mv",
     "build_dev": "npm run typescript_compile && npm run mv_website_js && npm run sass_compile",
-    "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile"
+    "build": "npm run clear && npm run typescript_compile && npm run mv_website_js && npm run minify_js && npm run sass_compile",
+    "start_express": "node server/server"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,6 @@
   },
   "homepage": "https://github.com/Checker8763/Doodle-Chat#readme",
   "devDependencies": {
-    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -43,8 +43,12 @@
     "typescript": "^4.8.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "socket.io": "^4.3.1",
+    "path": "^0.12.7",
+    "pocketbase": "^0.7.0",
+    "socket.io": "^4.5.2",
     "uglifyjs-folder": "^3.1.3"
   }
 }

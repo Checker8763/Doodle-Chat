@@ -5,6 +5,9 @@
 # NodeJs
 node_modules
 
+#pocketbase
+pocketbase.*
+
 # gulp compile output dir
 dist
 
